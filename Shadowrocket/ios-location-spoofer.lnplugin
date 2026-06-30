@@ -1,0 +1,12 @@
+#!name=iOS Location Spoofer
+#!desc=基于 acheong08/ios-location-spoofer 的 Loon 插件。通过 MITM 拦截 Apple WiFi/蜂窝定位响应并修改坐标。
+#!author=acheong08 (原始研究)
+
+[Script]
+# Loon http-response 格式
+# 修改 argument 中的 latitude/longitude 改变目标位置
+# 默认坐标: Apple Park
+http-response ^https?:\/\/(?:gs-loc(?:-cn)?\.apple\.com|bluedot\.is\.autonavi\.com(?:\.gds\.alibabadns\.com)?)\/clls\/wloc(?:\?.*)?$ script-path=https://raw.githubusercontent.com/mekos2772/ios-location-spoofer/main/Shadowrocket/location-spoofer.js, requires-body=true, binary-body-mode=true, timeout=10, tag=iOS Location Spoofer
+
+[MITM]
+hostname = gs-loc.apple.com, gs-loc-cn.apple.com, bluedot.is.autonavi.com, bluedot.is.autonavi.com.gds.alibabadns.com

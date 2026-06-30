@@ -1,0 +1,12 @@
+#!name=iOS Location Spoofer
+#!desc=基于 acheong08/ios-location-spoofer 的通用模块（Shadowrocket / Surge）。通过 MITM 拦截并修改 Apple WiFi/蜂窝定位响应（/clls/wloc），欺骗 iOS 系统定位。
+#!author=acheong08 (原始研究)
+#!homepage=https://github.com/acheong08/ios-location-spoofer
+
+[Script]
+# 默认模式: http-response — 拦截 Apple 返回的真实定位响应，修改其中的坐标数据后返回
+# 支持的域名: gs-loc.apple.com (全球), gs-loc-cn.apple.com (中国大陆), bluedot.is.autonavi.com (高德CDN)
+iOS Location Spoofer = type=http-response,pattern=^https?:\/\/(?:gs-loc(?:-cn)?\.apple\.com|bluedot\.is\.autonavi\.com(?:\.gds\.alibabadns\.com)?)\/clls\/wloc(?:\?.*)?$,requires-body=1,binary-body-mode=1,max-size=1048576,timeout=10,script-path=https://raw.githubusercontent.com/mekos2772/ios-location-spoofer/main/Shadowrocket/location-spoofer.js,argument=mode=response&latitude=37.3349&longitude=-122.00902&horizontalAccuracy=39&verticalAccuracy=1000&altitude=530&debug=false
+
+[MITM]
+hostname = %APPEND% gs-loc.apple.com, gs-loc-cn.apple.com, bluedot.is.autonavi.com, bluedot.is.autonavi.com.gds.alibabadns.com
