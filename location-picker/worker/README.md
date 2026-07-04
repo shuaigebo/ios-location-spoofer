@@ -4,6 +4,12 @@
 
 ## 接口
 
+| 路径 | 方法 | 说明 |
+|------|------|------|
+| `/?token=` | GET | 地图选点网页（必须带正确 token） |
+| `/loc.json?token=` | GET | 读取坐标 JSON |
+| `/set?token=` | POST | 保存坐标 |
+| `/health` | GET | 健康检查（无需 token） |
 | 路径               | 方法 | 说明                                      |
 | ------------------ | ---- | ----------------------------------------- |
 | `/`                | GET  | 地图选点网页（URL 加 `?token=` 才能保存） |
@@ -13,6 +19,8 @@
 | `/health`          | GET  | 健康检查（无需 token）                    |
 
 ## 部署
+
+> 只想用 Cloudflare 网页后台复制粘贴、不想装 npm / Wrangler 的用户，看这里：[`../cloudflare-webui/`](../cloudflare-webui/)。
 
 ### 1. 安装依赖
 
