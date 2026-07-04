@@ -6,17 +6,11 @@
 
 | 路径 | 方法 | 说明 |
 |------|------|------|
-| `/?token=` | GET | 地图选点网页（必须带正确 token） |
+| `/` | GET | 地图选点网页（URL 加 `?token=` 才能保存） |
 | `/loc.json?token=` | GET | 读取坐标 JSON |
 | `/set?token=` | POST | 保存坐标 |
+| `/enable` | POST | 回到真实位置（再点一下恢复伪造） |
 | `/health` | GET | 健康检查（无需 token） |
-| 路径               | 方法 | 说明                                      |
-| ------------------ | ---- | ----------------------------------------- |
-| `/`                | GET  | 地图选点网页（URL 加 `?token=` 才能保存） |
-| `/loc.json?token=` | GET  | 读取坐标 JSON                             |
-| `/set?token=`      | POST | 保存坐标                                  |
-| `/enable`          | POST | 回到真实位置（再点一下恢复伪造）          |
-| `/health`          | GET  | 健康检查（无需 token）                    |
 
 ## 部署
 

@@ -94,11 +94,12 @@ location-picker/worker/             # Cloudflare Worker 版（免 VPS，支持 L
 
 经常换定位、懒得手动查坐标改参数？项目自带 [`location-picker/`](location-picker/) 地图选点工具：点地图即定位、海拔自动、精度可调，Loon / Shadowrocket 通过 `configUrl` 读取。
 
-**两种部署方式：**
+**三种部署方式：**
 
 | 方式 | 目录 | 适合 |
 |------|------|------|
-| **Cloudflare Worker**（推荐） | [`location-picker/worker/`](location-picker/worker/) / [`location-picker/cloudflare-webui/`](location-picker/cloudflare-webui/) | 免 VPS、自带 HTTPS；熟悉命令行用 Wrangler 版，不想装 npm / Wrangler 用网页后台单文件版 |
+| **Cloudflare Worker — Wrangler CLI**（推荐） | [`location-picker/worker/`](location-picker/worker/) | 免 VPS、自带 HTTPS；熟悉命令行 |
+| **Cloudflare Worker — 网页后台** | [`location-picker/cloudflare-webui/`](location-picker/cloudflare-webui/) | 免 VPS、自带 HTTPS；不想装 npm / Wrangler，复制单文件即可 |
 | Node 自托管 | [`location-picker/server.js`](location-picker/server.js) | 有自己的 VPS / NAS |
 
 Loon 插件 **远程配置 URL** 示例：
